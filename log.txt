@@ -1,0 +1,35 @@
+
+
+Dia 1:
+    Intalacion de GO
+    Instalacion de Docker, problema para ejecutar Docker resulto que es necesaria la activacion de virtualizacion en el BIOS
+
+    inicia proyecto de go y un hola mundo
+    Instalacion de fiber y un hola mundo
+    Instalacion de GORM + driver para postgres
+    creado el archivo de conecion a la base de datos
+    creado un Docker con Postgres
+        user: mauxx  pass:u2  puerto:5432
+            docker run --name tapirus-db -e POSTGRES_USER=mauxx -e POSTGRES_PASSWORD=uqbar212 -p 5432:5432 -d postgres
+    conexion por bash al Docker 
+            docker exec -it tapirus-db bash
+        y creacion de la base de datos company1:
+            psql -U mauxx -- password    // al ejecutar esto pide el pass
+            CREATE DATABASE company1;    // importante el ; porque no da error si no se pone
+    creados carpeta models con el modelo de user
+    probado la conexion de la base de datos dede el main.go, creada la tabla users
+
+Dias 2-4:   //me colgue y no anote los avances
+    creadas las rutas con fiber
+    cree la carpeta handlers y el archibo users.go con los manejadores de petiiciones para la ruta users
+        get users, get user y post user
+    instale el paquete go playground/validator para validar los datos ingresados para un nuevo user.
+        por algún motivo desconocido se creaban ususarios con el mismo mail o con campos vacios ignorando las tags del model de gorm.
+
+Dia 5:
+    agregue busqueda de users por nombre y apellido
+Dia 6:
+    Agregue login con mail y password, agregue el campo password en la tabla users y el uso de bcrypt para encriptar la contraseña
+Dia 6:
+    Cree el model de Person para cargar en una tabla al personal, cree las rutas y handlers para crear obtener y borrar personas.
+    
