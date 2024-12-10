@@ -3,6 +3,7 @@ package handlers
 import (
 	"github.com/MauxxStudio/tapirus1go/db"
 	"github.com/MauxxStudio/tapirus1go/models"
+	"github.com/MauxxStudio/tapirus1go/session"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -24,5 +25,12 @@ func Login(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid credentials"})
 	}
 
-	return c.JSON("usuario logueado")
+	token, err := session.GenerateToken(user.ID.String())
+	if err != nil {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Usuario no autorizado"})
+	}
+
+	c.Set("Authorization", token)
+
+	return c.JSON("Usuario logueado")
 }

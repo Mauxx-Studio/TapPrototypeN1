@@ -32,4 +32,7 @@ Dia 6:
     Agregue login con mail y password, agregue el campo password en la tabla users y el uso de bcrypt para encriptar la contraseña
 Dia 6:
     Cree el model de Person para cargar en una tabla al personal, cree las rutas y handlers para crear obtener y borrar personas.
-    
+Dia 7:
+    cree el modelo para la tabla de asistencia y un modelo para los grupos. agrege la relacion entre user y person y Group
+Dia 8:
+    Trabajando sobre el login y la autenticacion con JWT

@@ -44,5 +44,7 @@ func main() {
 	app.Post("/staff", handlers.NewPerson)
 	app.Delete("/staff/:id", handlers.DeletePerson)
 
+	//Attendance routes
+
 	log.Fatal(app.Listen(":3000"))
 }
